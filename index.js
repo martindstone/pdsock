@@ -25,7 +25,6 @@ app.post('/webhook', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  console.log(socket.handshake.query.secret);
   if ( socket.handshake.query.secret != SECRET ) {
   	console.log("Incorrect secret, connection refused");
   	socket.disconnect('incorrect secret');
